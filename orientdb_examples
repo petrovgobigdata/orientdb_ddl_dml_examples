@@ -1,0 +1,17 @@
+cd $ORIENTDB_HOME/bin
+sudo ./console.sh
+
+CREATE DATABASE PLOCAL:/u01/orientdb/databases/yptest yptest yptest PLOCAL GRAPH
+
+--Connect to database
+--one user access
+CONNECT PLOCAL:/u01/orientdb/databases/yptest admin admin
+--multiple access
+CONNECT REMOTE:localhost/yptest admin admin
+
+--User List
+SELECT RID, name, status FROM OUser
+SELECT FROM ORole
+
+--Add user
+INSERT INTO OUser SET name = 'yptest', password = 'yptest', status = 'ACTIVE', roles = (SELECT FROM ORole WHERE name = 'admin')
