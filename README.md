@@ -1,0 +1,2 @@
+# orientdb_ddl_dml_examples
+Примеры использования orientdb
