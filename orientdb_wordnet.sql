@@ -14,3 +14,7 @@ CREATE CLASS words_doc
 --Должно получиться что-то типа:
 INSERT INTO words_doc(wordid, lemma)
 VALUES(405, 'ab'), (406, 'ab\'s initio'), (407, 'aba'), (408, 'aba transit number'), (409, 'abaca')
+
+--Создаем графовый класс и вершину
+CREATE CLASS words_graph EXTENDS V
+CREATE VERTEX words_graph
