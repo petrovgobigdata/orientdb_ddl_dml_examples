@@ -2,6 +2,10 @@ cd $ORIENTDB_HOME/bin
 sudo ./console.sh
 
 CREATE DATABASE PLOCAL:/u01/orientdb/databases/yptest yptest yptest PLOCAL GRAPH
+CREATE DATABASE PLOCAL:/u01/orientdb/databases/yptest_graph yptest yptest PLOCAL GRAPH
+
+--Connect to server
+CONNECT REMOTE:localhost admin admin_password
 
 --Connect to database
 --one user access
