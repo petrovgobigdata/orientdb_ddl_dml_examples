@@ -11,5 +11,6 @@ CREATE CLASS words_doc
 --------------------
 --Спецсимволы экранируем!
 --например '' заменяем на \'
+--Должно получиться что-то типа:
 INSERT INTO words_doc(wordid, lemma)
-VALUES(405, 'ab'), (406, 'ab initio'), (407, 'aba'), (408, 'aba transit number'), (409, 'abaca')
+VALUES(405, 'ab'), (406, 'ab\'s initio'), (407, 'aba'), (408, 'aba transit number'), (409, 'abaca')
