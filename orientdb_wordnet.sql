@@ -18,9 +18,9 @@ VALUES(405, 'ab'), (406, 'ab\'s initio'), (407, 'aba'), (408, 'aba transit numbe
 --Создаем графовый класс и вершину
 CREATE CLASS V
 CREATE CLASS E
-CREATE CLASS words_graph EXTENDS V
+CREATE CLASS words_v EXTENDS V
 
-CREATE VERTEX words_graph
-INSERT INTO words_graph FROM SELECT FROM words_doc
+CREATE VERTEX words_v
+INSERT INTO words_v FROM SELECT FROM words_doc
 
-DELETE VERTEX words_graph
+DELETE VERTEX words_graph BATCH 1000
