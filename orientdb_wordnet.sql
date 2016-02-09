@@ -9,7 +9,8 @@ CREATE CLASS has_syn_e EXTENDS E
 
 SELECT FROM words_v
 SELECT EXPAND( OUT() ) FROM words_v where wordid = 405
-SELECT EXPAND( BOTH( 'has_syn_e' ) ) FROM words_v where wordid = 405
+--Отобрать только те записи у которых есть исходящие ребра (есть синонимы)
+SELECT EXPAND( BOTH( 'has_syn_e' ) ) FROM words_v where outE().size() > 0 limit 100
 
 DELETE EDGE has_syn_e LIMIT 1000000
 DELETE VERTEX words_v LIMIT 1000000
