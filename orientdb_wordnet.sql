@@ -21,4 +21,6 @@ SELECT *, OUT().lemma FROM words_v where outE().size() > 10 limit 100
 SELECT *, OUT().lemma as lemma_tr FROM words_v where outE().size() > 10 UNWIND lemma_tr limit 100
 
 DELETE EDGE has_syn_e LIMIT 1000000
+DELETE EDGE has_senses_e LIMIT 1000000
 DELETE VERTEX words_v LIMIT 1000000
+DELETE VERTEX senses_v LIMIT 1000000
