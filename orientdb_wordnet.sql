@@ -3,7 +3,9 @@ CREATE CLASS V
 CREATE CLASS E
 --Создаем классы вершину и ребро
 CREATE CLASS words_v EXTENDS V
-CREATE CLASS has_syn_e EXTENDS E
+CREATE CLASS senses_v EXTENDS V
+CREATE CLASS has_link_e EXTENDS E
+CREATE CLASS has_senses_e EXTENDS E
 
 --INSERT INTO words_v FROM SELECT FROM words_doc
 
