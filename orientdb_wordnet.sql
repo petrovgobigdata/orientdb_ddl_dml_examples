@@ -28,6 +28,8 @@ order by wordid
 UNWIND lemma, linktype
 limit 1000
 
+select $a.wordid, $a.posname as aa from senses_v LET $a = (select from $parent.$current) unwind aa
+
 DELETE EDGE has_senses_e LIMIT 1000000
 DELETE EDGE has_link_e LIMIT 1000000
 DELETE VERTEX words_v LIMIT 1000000
