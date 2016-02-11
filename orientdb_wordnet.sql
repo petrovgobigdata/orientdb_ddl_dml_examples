@@ -30,13 +30,10 @@ limit 1000
 
 select $a.wordid, $a.posname as aa from senses_v LET $a = (select from $parent.$current) unwind aa
 
-select $a.posname, $a.wordid aa, $a.lemma from senses_v 
-LET $a = (select outE('has_link_e').posname as posname, outE('has_link_e').in.in('has_senses_e').wordid as wordid, outE('has_link_e').in.in('has_senses_e').lemma as lemma from $parent.$current) unwind aa
-
-select in.wordid wordid, in.in('has_senses_e').lemma as lemma, out.@rid, linktype
+select in.wordid as wordid, in.in('has_senses_e').lemma as lemma, linktype, out.wordid as wordid_link, out.synsetid as synsetid_link, out.in('has_senses_e').lemma as lemma_link
 from has_link_e
-where in.wordid = 28127 and in.synsetid = 300006050
-unwind lemma
+where in.wordid = 28127 and in.synsetid = 300006050 and linktype = 'antonym'
+unwind lemma, lemma_link
 
 DELETE EDGE has_senses_e LIMIT 1000000
 DELETE EDGE has_link_e LIMIT 1000000
