@@ -20,16 +20,12 @@ SELECT *, OUT().lemma FROM words_v where outE().size() > 10 limit 100
 --Отобрать только те записи у которых есть > 10 синонимов и транспонировать
 SELECT *, OUT().lemma as lemma_tr FROM words_v where outE().size() > 10 UNWIND lemma_tr limit 100
 
-select wordid, IN('has_senses_e').lemma as lemma, synsetid, outE('has_link_e').linktype[0] as linktype, OUT('has_link_e').wordid as wordid_link
+select wordid, IN('has_senses_e').lemma as lemma, synsetid, outE('has_link_e')[linktype = 'antonym'].linktype as linktype
 from senses_v 
-where outE('has_link_e').linktype[0] = 'synonym' 
-order by wordid UNWIND lemma, wordid_link
+where wordid = 28127 and synsetid = 300006050 and outE('has_link_e')[linktype = 'antonym'].linktype[0] = 'antonym'
+order by wordid 
+UNWIND lemma, linktype
 limit 1000
-
-select wordid, IN('has_senses_e').lemma as lemma, synsetid, outE('has_link_e') as linktype
-from senses_v 
-where wordid = 28127 and synsetid = 300006050 
-order by wordid UNWIND linktype limit 1000
 
 DELETE EDGE has_senses_e LIMIT 1000000
 DELETE EDGE has_link_e LIMIT 1000000
