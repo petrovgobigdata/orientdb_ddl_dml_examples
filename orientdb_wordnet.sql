@@ -26,6 +26,11 @@ where outE('has_link_e').linktype[0] = 'synonym'
 order by wordid UNWIND lemma, wordid_link
 limit 1000
 
+select wordid, IN('has_senses_e').lemma as lemma, synsetid, outE('has_link_e') as linktype
+from senses_v 
+where wordid = 28127 and synsetid = 300006050 
+order by wordid UNWIND linktype limit 1000
+
 DELETE EDGE has_senses_e LIMIT 1000000
 DELETE EDGE has_link_e LIMIT 1000000
 DELETE VERTEX words_v LIMIT 1000000
