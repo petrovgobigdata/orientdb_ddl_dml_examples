@@ -1,4 +1,7 @@
 create class party
+create property party.addr EMBEDDED
+create property party.addr.date_from date
+create property party.addr.date_to date
 
 INSERT INTO party CONTENT {
     "name": "Yury",
@@ -11,3 +14,8 @@ INSERT INTO party CONTENT {
         {"location": "Москва", "street": "Лесная", "home": "5", "date_from": "2005-05-15", "date_to": "3000-01-01"}
     ]
 }
+
+select name, sex, birthday, addr.location, addr.street, addr.home, addr.date_from, addr.date_to from party
+
+select name, sex, birthday, addr[date_from.asDate() = "2005-05-15"].date_from.asDate()
+from party
