@@ -12,6 +12,7 @@ CREATE CLASS words_v EXTENDS V
 CREATE PROPERTY words_v.wordid_seq LONG
 CREATE PROPERTY words_v.wordid STRING
 CREATE PROPERTY words_v.lemma STRING
+CREATE PROPERTY words_v.origin STRING
 CREATE INDEX words_v.nui_words_v_lemma ON words_v (lemma) NOTUNIQUE
 CREATE INDEX words_v.nui_words_v_wordid ON words_v (wordid) NOTUNIQUE
 CREATE INDEX words_v.nui_words_v_wordid_seq ON words_v (wordid_seq) NOTUNIQUE
@@ -26,22 +27,26 @@ CREATE INDEX senses_v.nui_senses_v_synsetid_seq ON words_v (synsetid_seq) NOTUNI
 CREATE INDEX senses_v.nui_senses_v_wordid_seq ON words_v (wordid_seq, synsetid_seq) NOTUNIQUE
 
 CREATE CLASS samples_v EXTENDS V
+CREATE PROPERTY senses_v.wordid_seq LONG
 CREATE PROPERTY samples_v.synsetid_seq LONG
 CREATE PROPERTY samples_v.sample_seq LONG
 CREATE PROPERTY samples_v.sample STRING
-CREATE INDEX samples_v.nui_samples_v_synsetid_seq ON words_v (synsetid_seq) NOTUNIQUE
+CREATE INDEX samples_v.nui_samples_v_wordid_seq ON words_v (wordid_seq, synsetid_seq) NOTUNIQUE
 CREATE INDEX samples_v.nui_samples_v_sample_seq ON words_v (sample_seq) NOTUNIQUE
-
+--Отношения слово-значение
 CREATE CLASS has_senses_e EXTENDS E
 CREATE PROPERTY has_senses_e.posname STRING
 CREATE PROPERTY has_senses_e.origin STRING
-
+--Отношения между значениями - синонимы, антонимы и т.д.
 CREATE CLASS has_link_e EXTENDS E
 CREATE PROPERTY has_link_e.linktype STRING
 CREATE PROPERTY has_link_e.linkgroup STRING
 CREATE PROPERTY has_link_e.origin STRING
-
+--Отношения значения-примеры использования
 CREATE CLASS has_samples_e EXTENDS E
+CREATE PROPERTY has_samples_e.origin STRING
+--Ссылки в words_v на себя, например слова в других регистрах (casedwords) и т.д.
+CREATE CLASS has_wordslink_e EXTENDS E
 CREATE PROPERTY has_samples_e.origin STRING
 
 --INSERT INTO words_v FROM SELECT FROM words_doc
