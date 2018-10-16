@@ -4,6 +4,7 @@
 --Создаем графовые классы
 CREATE CLASS V
 CREATE CLASS E
+
 --Создаем последовательность (для автоинкремента)
 CREATE SEQUENCE sqlunet_wordid TYPE ORDERED START 1
 CREATE SEQUENCE sqlunet_synsetid TYPE ORDERED START 1
