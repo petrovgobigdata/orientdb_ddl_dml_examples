@@ -3,6 +3,9 @@ CREATE CLASS V
 CREATE CLASS E
 --Создаем классы вершину и ребро
 CREATE CLASS words_v EXTENDS V
+CREATE PROPERTY words_v.wordid INTEGER
+CREATE PROPERTY words_v.lemma STRING
+
 CREATE CLASS senses_v EXTENDS V
 CREATE CLASS has_link_e EXTENDS E
 CREATE CLASS has_senses_e EXTENDS E
@@ -39,3 +42,5 @@ DELETE EDGE has_senses_e LIMIT 1000000
 DELETE EDGE has_link_e LIMIT 1000000
 DELETE VERTEX words_v LIMIT 1000000
 DELETE VERTEX senses_v LIMIT 1000000
+                                                       
+CREATE INDEX words_v.nui_lemma ON words_v (lemma) NOTUNIQUE
