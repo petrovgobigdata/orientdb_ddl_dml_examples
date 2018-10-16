@@ -13,6 +13,7 @@ CREATE CLASS words_v EXTENDS V
 CREATE PROPERTY words_v.wordid_seq LONG
 CREATE PROPERTY words_v.wordid STRING
 CREATE PROPERTY words_v.lemma STRING
+CREATE PROPERTY words_v.wordtype STRING
 CREATE PROPERTY words_v.origin STRING
 CREATE INDEX words_v.nui_words_v_lemma ON words_v (lemma) NOTUNIQUE
 CREATE INDEX words_v.nui_words_v_wordid ON words_v (wordid) NOTUNIQUE
