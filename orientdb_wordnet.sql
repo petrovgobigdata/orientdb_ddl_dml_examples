@@ -1,20 +1,35 @@
+--=====================================--
+--Определим объекты для словаря WORDNET
+--=====================================--
 --Создаем графовые классы
 CREATE CLASS V
 CREATE CLASS E
---Создаем классы вершину и ребро
+--Создаем последовательность (для автоинкремента)
+CREATE SEQUENCE sqlunet_wordid TYPE ORDERED START 1
+CREATE SEQUENCE sqlunet_synsetid TYPE ORDERED START 1
+--Создаем вершины и ребра словаря
 CREATE CLASS words_v EXTENDS V
-CREATE PROPERTY words_v.wordid LONG
+CREATE PROPERTY words_v.wordid_seq LONG
+CREATE PROPERTY words_v.wordid STRING
 CREATE PROPERTY words_v.lemma STRING
-CREATE INDEX words_v.nui_lemma ON words_v (lemma) NOTUNIQUE
+CREATE INDEX words_v.nui_words_v_lemma ON words_v (lemma) NOTUNIQUE
+CREATE INDEX words_v.nui_words_v_wordid ON words_v (wordid) NOTUNIQUE
+CREATE INDEX words_v.nui_words_v_wordid_seq ON words_v (wordid_seq) NOTUNIQUE
 
 CREATE CLASS senses_v EXTENDS V
-CREATE PROPERTY senses_v.wordid LONG
-CREATE PROPERTY senses_v.synsetid LONG
+CREATE PROPERTY senses_v.wordid_seq LONG
+CREATE PROPERTY senses_v.synsetid_seq LONG
+CREATE PROPERTY senses_v.synsetid STRING
 CREATE PROPERTY senses_v.definition STRING
+CREATE INDEX senses_v.nui_senses_v_wordid ON words_v (wordid) NOTUNIQUE
+CREATE INDEX senses_v.nui_senses_v_synsetid_seq ON words_v (synsetid_seq) NOTUNIQUE
+CREATE INDEX senses_v.nui_senses_v_wordid_seq ON words_v (wordid_seq, synsetid_seq) NOTUNIQUE
 
 CREATE CLASS samples_v EXTENDS V
-CREATE PROPERTY samples_v.synsetid
-CREATE PROPERTY samples_v.sample
+CREATE PROPERTY samples_v.synsetid_seq LONG
+CREATE PROPERTY samples_v.sample_seq LONG
+CREATE PROPERTY samples_v.sample STRING
+CREATE INDEX samples_v.nui_samples_v_synsetid_seq ON words_v (synsetid_seq) NOTUNIQUE
 
 CREATE CLASS has_senses_e EXTENDS E
 CREATE CLASS has_link_e EXTENDS E
