@@ -79,6 +79,9 @@ unwind lemma, lemma_link
 
 DELETE EDGE has_senses_e LIMIT 1000000
 DELETE EDGE has_link_e LIMIT 1000000
+DELETE EDGE has_samples_e
+DELETE EDGE has_wordslink_e
 DELETE VERTEX words_v LIMIT 1000000
 DELETE VERTEX senses_v LIMIT 1000000
+DELETE VERTEX samples_v
 
