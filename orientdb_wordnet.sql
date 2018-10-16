@@ -30,10 +30,19 @@ CREATE PROPERTY samples_v.synsetid_seq LONG
 CREATE PROPERTY samples_v.sample_seq LONG
 CREATE PROPERTY samples_v.sample STRING
 CREATE INDEX samples_v.nui_samples_v_synsetid_seq ON words_v (synsetid_seq) NOTUNIQUE
+CREATE INDEX samples_v.nui_samples_v_sample_seq ON words_v (sample_seq) NOTUNIQUE
 
 CREATE CLASS has_senses_e EXTENDS E
+CREATE PROPERTY has_senses_e.posname STRING
+CREATE PROPERTY has_senses_e.origin STRING
+
 CREATE CLASS has_link_e EXTENDS E
+CREATE PROPERTY has_link_e.linktype STRING
+CREATE PROPERTY has_link_e.linkgroup STRING
+CREATE PROPERTY has_link_e.origin STRING
+
 CREATE CLASS has_samples_e EXTENDS E
+CREATE PROPERTY has_samples_e.origin STRING
 
 --INSERT INTO words_v FROM SELECT FROM words_doc
 
