@@ -74,6 +74,8 @@ where wordid = 28127 and synsetid = 300006050 and outE('has_link_e')[linktype = 
 order by wordid 
 UNWIND lemma, linktype
 limit 1000
+--Бреем первое значение [0] из типа EMBEDDEDLIST
+select IN('has_senses_e').wordid_seq[0] as wordid_seq, * from senses_v
 
 select $a.wordid, $a.posname as aa from senses_v LET $a = (select from $parent.$current) unwind aa
 
