@@ -74,6 +74,7 @@ where wordid = 28127 and synsetid = 300006050 and outE('has_link_e')[linktype = 
 order by wordid 
 UNWIND lemma, linktype
 limit 1000
+                                                       
 --Бреем первое значение [0] из типа EMBEDDEDLIST
 select IN('has_senses_e').wordid_seq[0] as wordid_seq, * from senses_v
 
@@ -84,6 +85,9 @@ from has_link_e
 where in.wordid = 28127 and in.synsetid = 300006050 and linktype = 'antonym'
 unwind lemma, lemma_link
 
+--Обновление атрибута origin
+UPDATE senses_v SET origin = 'Luca' WHERE IN('has_senses_e').wordid_seq[0] = 19
+                                                       
 DELETE EDGE has_senses_e LIMIT 1000000
 DELETE EDGE has_link_e LIMIT 1000000
 DELETE EDGE has_samples_e
