@@ -33,7 +33,9 @@ CREATE INDEX senses_v.nui_senses_v_casedwordid ON senses_v (casedwordid) NOTUNIQ
 CREATE CLASS samples_v EXTENDS V
 CREATE PROPERTY samples_v.synsetid_seq LONG
 CREATE PROPERTY samples_v.sample_seq LONG
+CREATE PROPERTY samples_v.synsetid STRING
 CREATE PROPERTY samples_v.sample STRING
+CREATE INDEX samples_v.nui_samples_v_synsetid ON samples_v (synsetid) NOTUNIQUE
 CREATE INDEX samples_v.nui_samples_v_synsetid_seq ON samples_v (synsetid_seq) NOTUNIQUE
 CREATE INDEX samples_v.nui_samples_v_sample_seq ON samples_v (sample_seq) NOTUNIQUE
 --Отношения слово-значение
