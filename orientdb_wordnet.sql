@@ -82,6 +82,9 @@ limit 1000
 --Бреем первое значение [0] из типа EMBEDDEDLIST
 select IN('has_senses_e').wordid_seq[0] as wordid_seq, * from senses_v
 
+--Слова, у которых нет ребра has_senses_e с атрибутом wordtype = 'casedword'
+select * from words_v where wordid = 405 and outE('has_senses_e')[wordtype = 'casedword'].size() = 0
+
 select $a.wordid, $a.posname as aa from senses_v LET $a = (select from $parent.$current) unwind aa
 
 select in.wordid as wordid, in.in('has_senses_e').lemma as lemma, linktype, out.wordid as wordid_link, out.synsetid as synsetid_link, out.in('has_senses_e').lemma as lemma_link
