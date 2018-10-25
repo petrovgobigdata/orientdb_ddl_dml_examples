@@ -21,24 +21,19 @@ CREATE INDEX words_v.nui_words_v_wordid ON words_v (wordid) NOTUNIQUE
 CREATE INDEX words_v.nui_words_v_wordid_seq ON words_v (wordid_seq) NOTUNIQUE
 
 CREATE CLASS senses_v EXTENDS V
-CREATE PROPERTY senses_v.wordid_seq LONG
-CREATE PROPERTY senses_v.wordid STRING
 CREATE PROPERTY senses_v.synsetid_seq LONG
 CREATE PROPERTY senses_v.synsetid STRING
 CREATE PROPERTY senses_v.definition STRING
 CREATE PROPERTY senses_v.casedwordid STRING
 CREATE INDEX senses_v.nui_senses_v_synsetid_seq ON senses_v (synsetid_seq) NOTUNIQUE
 CREATE INDEX senses_v.nui_senses_v_synsetid ON senses_v (synsetid) NOTUNIQUE
-CREATE INDEX senses_v.nui_senses_v_wordid_seq ON senses_v (wordid_seq, synsetid_seq) NOTUNIQUE
-CREATE INDEX senses_v.nui_senses_v_wordid ON senses_v (wordid) NOTUNIQUE
 CREATE INDEX senses_v.nui_senses_v_casedwordid ON senses_v (casedwordid) NOTUNIQUE
 
 CREATE CLASS samples_v EXTENDS V
-CREATE PROPERTY senses_v.wordid_seq LONG
 CREATE PROPERTY samples_v.synsetid_seq LONG
 CREATE PROPERTY samples_v.sample_seq LONG
 CREATE PROPERTY samples_v.sample STRING
-CREATE INDEX samples_v.nui_samples_v_wordid_seq ON samples_v (wordid_seq, synsetid_seq) NOTUNIQUE
+CREATE INDEX samples_v.nui_samples_v_synsetid_seq ON samples_v (synsetid_seq) NOTUNIQUE
 CREATE INDEX samples_v.nui_samples_v_sample_seq ON samples_v (sample_seq) NOTUNIQUE
 --Отношения слово-значение
 CREATE CLASS has_senses_e EXTENDS E
