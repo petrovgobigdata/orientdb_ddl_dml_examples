@@ -44,6 +44,7 @@ CREATE INDEX samples_v.nui_samples_v_sample_seq ON samples_v (sample_seq) NOTUNI
 CREATE CLASS has_senses_e EXTENDS E
 CREATE PROPERTY has_senses_e.posname STRING
 CREATE PROPERTY has_senses_e.origin STRING
+CREATE PROPERTY has_senses_e.wordtype STRING
 --Отношения между значениями - синонимы, антонимы и т.д.
 CREATE CLASS has_link_e EXTENDS E
 CREATE PROPERTY has_link_e.linktype STRING
