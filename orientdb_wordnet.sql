@@ -8,6 +8,7 @@ CREATE CLASS E
 --Создаем последовательность (для автоинкремента)
 CREATE SEQUENCE sqlunet_wordid TYPE ORDERED START 0 INCREMENT 1
 CREATE SEQUENCE sqlunet_synsetid TYPE ORDERED START 0 INCREMENT 1
+CREATE SEQUENCE sqlunet_sample_seq TYPE ORDERED START 0 INCREMENT 1
 --Создаем вершины и ребра словаря
 CREATE CLASS words_v EXTENDS V
 CREATE PROPERTY words_v.wordid_seq LONG
