@@ -56,6 +56,7 @@ CREATE PROPERTY has_samples_e.origin STRING
 --Ссылки в words_v на себя, например слова в других регистрах (casedwords) и т.д.
 CREATE CLASS has_wordslink_e EXTENDS E
 CREATE PROPERTY has_wordslink_e.origin STRING
+CREATE PROPERTY has_wordslink_e.wordtype STRING
 
 --INSERT INTO words_v FROM SELECT FROM words_doc
 
