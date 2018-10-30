@@ -25,10 +25,8 @@ CREATE CLASS senses_v EXTENDS V
 CREATE PROPERTY senses_v.synsetid_seq LONG
 CREATE PROPERTY senses_v.synsetid STRING
 CREATE PROPERTY senses_v.definition STRING
-CREATE PROPERTY senses_v.casedwordid STRING
 CREATE INDEX senses_v.nui_senses_v_synsetid_seq ON senses_v (synsetid_seq) NOTUNIQUE
 CREATE INDEX senses_v.nui_senses_v_synsetid ON senses_v (synsetid) NOTUNIQUE
-CREATE INDEX senses_v.nui_senses_v_casedwordid ON senses_v (casedwordid) NOTUNIQUE
 
 CREATE CLASS samples_v EXTENDS V
 CREATE PROPERTY samples_v.synsetid_seq LONG
