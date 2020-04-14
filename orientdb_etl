@@ -1,0 +1,38 @@
+https://orientdb.org/docs/3.0.x/etl/ETL-Introduction.html
+
+$ORIENTDB_HOME/bin/oetl.sh config-dbpedia.json
+
+--============================================
+Run-time configuration
+--============================================
+When you run the ETL module, you can define its configuration variables by passing it a JSON file, which the ETL module resolves at run-time by passing them as it starts up.
+
+You could also define the values for these variables through command-line options. For example, you could assign the database URL as ${databaseURL}, then pass the relevant argument through the command-line:
+
+$ $ORIENTDB_HOME/bin/oetl.sh config-dbpedia.json \
+      -databaseURL=plocal:/tmp/mydb
+      
+--============================================
+Connect To The SQLite Database Using SQLite JDBC Driver
+--============================================
+--Почитать
+https://www.sqlitetutorial.net/sqlite-java/sqlite-jdbc-driver/
+--Скачать драйвер
+https://bitbucket.org/xerial/sqlite-jdbc/downloads/
+
+--Строка подключения
+  "extractor": { 
+  "jdbc": {
+		"driver": "org.sqlite.JDBC",
+        "url": "jdbc:sqlite:/opt/oetl/sqlunet/sqlite-XX.db",
+        "userName": "",
+        "userPassword": "",
+        "query": "
+select
+     wordid
+    ,lemma
+    ,'wordnet' as origin
+from words
+		" 
+	}
+},
