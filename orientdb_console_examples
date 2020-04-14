@@ -2,7 +2,7 @@
 Console Commands
 http://orientdb.com/docs/3.0.x/console/Console-Commands.html
 ===================================
---Чтобы консоль работала корректно, нужно перейти в папку $ORIENTDB_HOME. У меня $ORIENTDB_HOME = /opt/orientdb/distribution/target/orientdb-community-3.0.31-SNAPSHOT.dir/orientdb-community-3.0.31-SNAPSHOT
+--Чтобы консоль работала корректно, нужно перейти в папку $ORIENTDB_HOME/config. У меня $ORIENTDB_HOME = /opt/orientdb/distribution/target/orientdb-community-3.0.31-SNAPSHOT.dir/orientdb-community-3.0.31-SNAPSHOT
 
 --Сперва подключимся к серверу
 CONNECT remote:localhost root orient_edu
