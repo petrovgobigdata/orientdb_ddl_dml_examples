@@ -36,23 +36,28 @@ CREATE PROPERTY samples_v.sample STRING
 CREATE INDEX samples_v.nui_samples_v_synsetid ON samples_v (synsetid) NOTUNIQUE
 CREATE INDEX samples_v.nui_samples_v_synsetid_seq ON samples_v (synsetid_seq) NOTUNIQUE
 CREATE INDEX samples_v.nui_samples_v_sample_seq ON samples_v (sample_seq) NOTUNIQUE
+
 --Отношения слово-значение
 CREATE CLASS has_senses_e EXTENDS E
 CREATE PROPERTY has_senses_e.posname STRING
 CREATE PROPERTY has_senses_e.origin STRING
 CREATE PROPERTY has_senses_e.wordtype STRING
+CREATE INDEX UNIQUE
 --Отношения между значениями - синонимы, антонимы и т.д.
 CREATE CLASS has_link_e EXTENDS E
 CREATE PROPERTY has_link_e.linktype STRING
 CREATE PROPERTY has_link_e.linkgroup STRING
 CREATE PROPERTY has_link_e.origin STRING
+CREATE INDEX UNIQUE
 --Отношения значения-примеры использования
 CREATE CLASS has_samples_e EXTENDS E
 CREATE PROPERTY has_samples_e.origin STRING
+CREATE INDEX UNIQUE
 --Ссылки в words_v на себя, например слова в других регистрах (casedwords) и т.д.
 CREATE CLASS has_wordslink_e EXTENDS E
 CREATE PROPERTY has_wordslink_e.origin STRING
 CREATE PROPERTY has_wordslink_e.wordtype STRING
+CREATE INDEX UNIQUE
 
 --INSERT INTO words_v FROM SELECT FROM words_doc
 
