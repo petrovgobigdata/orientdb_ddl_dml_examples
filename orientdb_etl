@@ -1,6 +1,17 @@
 https://orientdb.org/docs/3.0.x/etl/ETL-Introduction.html
 
 $ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/01.words_vertex_sqlite.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/02_01.senses_sqlite.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/02_02.senses_sqlite.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/03_01.words_vertex_cased_sqlite.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/03_02.words_vertex_cased_sqlite.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/03_03.words_vertex_cased_sqlite.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/04_01.samples_sqlite.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/04_02.samples_sqlite.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/04_03.samples_sqlite.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/05.senses_syn_sqlite.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/06.senses_lexlinks_sqlite.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/07.senses_semlinks_sqlite.json
 
 --============================================
 Run-time configuration
