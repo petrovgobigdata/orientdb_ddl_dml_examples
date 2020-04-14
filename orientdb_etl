@@ -1,6 +1,6 @@
 https://orientdb.org/docs/3.0.x/etl/ETL-Introduction.html
 
-$ORIENTDB_HOME/bin/oetl.sh config-dbpedia.json
+$ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/01.words_vertex_sqlite.json
 
 --============================================
 Run-time configuration
