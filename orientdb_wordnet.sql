@@ -44,7 +44,7 @@ CREATE PROPERTY has_senses_e.origin STRING;
 CREATE PROPERTY has_senses_e.wordtype STRING;
 CREATE PROPERTY has_senses_e.in LINK;
 CREATE PROPERTY has_senses_e.out LINK;
-CREATE INDEX has_senses_e.ui_has_senses_e ON has_senses_e (out, in) UNIQUE
+--CREATE INDEX has_senses_e.ui_has_senses_e ON has_senses_e (out, in) UNIQUE
 --Отношения между значениями - синонимы, антонимы и т.д.
 CREATE CLASS has_link_e EXTENDS E;
 CREATE PROPERTY has_link_e.linktype STRING;
@@ -52,20 +52,20 @@ CREATE PROPERTY has_link_e.linkgroup STRING;
 CREATE PROPERTY has_link_e.origin STRING;
 CREATE PROPERTY has_link_e.in LINK;
 CREATE PROPERTY has_link_e.out LINK;
-CREATE INDEX has_link_e.ui_has_link_e ON has_link_e (out, in) UNIQUE
+--CREATE INDEX has_link_e.ui_has_link_e ON has_link_e (out, in) UNIQUE
 --Отношения значения-примеры использования
 CREATE CLASS has_samples_e EXTENDS E;
 CREATE PROPERTY has_samples_e.origin STRING;
 CREATE PROPERTY has_samples_e.in LINK;
 CREATE PROPERTY has_samples_e.out LINK;
-CREATE INDEX has_samples_e.ui_has_samples_e ON has_samples_e (out, in) UNIQUE
+--CREATE INDEX has_samples_e.ui_has_samples_e ON has_samples_e (out, in) UNIQUE
 --Ссылки в words_v на себя, например слова в других регистрах (casedwords) и т.д.
 CREATE CLASS has_wordslink_e EXTENDS E;
 CREATE PROPERTY has_wordslink_e.origin STRING;
 CREATE PROPERTY has_wordslink_e.wordtype STRING;
 CREATE PROPERTY has_wordslink_e.in LINK;
 CREATE PROPERTY has_wordslink_e.out LINK;
-CREATE INDEX has_wordslink_e.ui_has_wordslink_e ON has_wordslink_e (out, in) UNIQUE
+--CREATE INDEX has_wordslink_e.ui_has_wordslink_e ON has_wordslink_e (out, in) UNIQUE
 
 --INSERT INTO words_v FROM SELECT FROM words_doc
 
