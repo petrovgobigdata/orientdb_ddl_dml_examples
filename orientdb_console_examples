@@ -1,21 +1,42 @@
-cd $ORIENTDB_HOME/bin
-sudo ./console.sh
+===================================
+Console Commands
+http://orientdb.com/docs/3.0.x/console/Console-Commands.html
+===================================
+--Чтобы консоль работала корректно, нужно перейти в папку $ORIENTDB_HOME. У меня $ORIENTDB_HOME = /opt/orientdb/distribution/target/orientdb-community-3.0.31-SNAPSHOT.dir/orientdb-community-3.0.31-SNAPSHOT
 
-CREATE DATABASE PLOCAL:/u01/orientdb/databases/yptest yptest yptest PLOCAL GRAPH
-CREATE DATABASE PLOCAL:/u01/orientdb/databases/yptest_graph yptest yptest PLOCAL GRAPH
+--Сперва подключимся к серверу
+CONNECT remote:localhost root orient_edu
 
---Connect to server
-CONNECT REMOTE:localhost admin admin_password
+LIST SERVER USERS
+LIST DATABASES
+
+--Добавим нового пользователя уровня сервера, чтобы не светить root - под ним будем создавать БД
+--http://orientdb.com/docs/3.0.x/console/Console-Command-Set-Server-User.html
+--Символ * означает - give it all permissions
+SET SERVER USER yp_edu yp_edu *
+
+CREATE DATABASE remote:localhost/sqlunet_edu yp_edu yp_edu PLOCAL GRAPH
+DROP DATABASE remote:localhost/sqlunet_edu yp_edu yp_edu
+
+--CREATE DATABASE plocal:/u01/orientdb/databases/yptest yptest yptest PLOCAL GRAPH
 
 --Connect to database
---one user access
-CONNECT PLOCAL:/u01/orientdb/databases/yptest admin admin
 --multiple access
-CONNECT REMOTE:localhost/yptest admin admin
+CONNECT remote:localhost/sqlunet_edu yp_edu yp_edu
+DISCONNECT
+
+--one user access
+CONNECT plocal:/u01/orientdb/databases/yptest admin admin
 
 --User List
+--Сперва подключимся к системной БД OSystem
+CONNECT remote:localhost/OSystem root orient_edu
 SELECT RID, name, status FROM OUser
 SELECT FROM ORole
 
 --Add user
-INSERT INTO OUser SET name = 'yptest', password = 'yptest', status = 'ACTIVE', roles = (SELECT FROM ORole WHERE name = 'admin')
+--Сперва подключимся к системной БД OSystem
+CONNECT remote:localhost/OSystem root orient_edu
+--Добавим нового пользователя
+INSERT INTO OUser SET name = 'yp_edu', password = 'yp_edu', status = 'ACTIVE', roles = (SELECT FROM ORole WHERE name = 'admin')
+DELETE FROM OUser where name = 'yp_edu'
