@@ -71,6 +71,7 @@ CREATE INDEX has_samples_e.ui_has_samples_e ON has_samples_e (out, in, origin) U
 CREATE CLASS has_wordslink_e EXTENDS E;
 CREATE PROPERTY has_wordslink_e.origin STRING;
 CREATE PROPERTY has_wordslink_e.wordtype STRING;
+CREATE PROPERTY has_wordslink_e.posname STRING;
 CREATE PROPERTY has_wordslink_e.in LINK;
 CREATE PROPERTY has_wordslink_e.out LINK;
 CREATE INDEX has_wordslink_e.ui_has_wordslink_e ON has_wordslink_e (out, in, origin, wordtype) UNIQUE
