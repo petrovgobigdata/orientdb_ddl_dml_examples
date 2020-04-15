@@ -25,6 +25,7 @@ CREATE CLASS senses_v EXTENDS V;
 CREATE PROPERTY senses_v.synsetid_seq LONG;
 CREATE PROPERTY senses_v.synsetid STRING;
 CREATE PROPERTY senses_v.definition STRING;
+--Добавить origin в следующих версиях
 CREATE INDEX senses_v.nui_senses_v_synsetid_seq ON senses_v (synsetid_seq) NOTUNIQUE;
 CREATE INDEX senses_v.nui_senses_v_synsetid ON senses_v (synsetid) NOTUNIQUE
 
@@ -34,6 +35,7 @@ CREATE PROPERTY samples_v.sample_seq LONG;
 CREATE PROPERTY samples_v.synsetid STRING;
 CREATE PROPERTY samples_v.sample_num STRING;
 CREATE PROPERTY samples_v.sample STRING;
+--Добавить origin в следующих версиях
 CREATE INDEX samples_v.nui_samples_v_synsetid ON samples_v (synsetid) NOTUNIQUE;
 CREATE INDEX samples_v.nui_samples_v_synsetid_seq ON samples_v (synsetid_seq) NOTUNIQUE;
 CREATE INDEX samples_v.nui_samples_v_sample_seq ON samples_v (sample_seq) NOTUNIQUE
