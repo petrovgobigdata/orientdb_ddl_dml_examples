@@ -28,7 +28,7 @@ CREATE PROPERTY senses_v.synsetid_seq LONG;
 CREATE PROPERTY senses_v.synsetid STRING;
 CREATE PROPERTY senses_v.wordid STRING;
 CREATE PROPERTY senses_v.definition STRING;
-CREATE PROPERTY words_v.origin STRING;
+CREATE PROPERTY senses_v.origin STRING;
 CREATE INDEX senses_v.nui_senses_v_synsetid_seq ON senses_v (synsetid_seq) NOTUNIQUE;
 CREATE INDEX senses_v.nui_senses_v_synsetid ON senses_v (synsetid) NOTUNIQUE
 CREATE INDEX senses_v.nui_senses_v_wordid ON senses_v (wordid) NOTUNIQUE;
@@ -40,7 +40,7 @@ CREATE PROPERTY samples_v.synsetid STRING;
 CREATE PROPERTY samples_v.wordid STRING;
 CREATE PROPERTY samples_v.sample_num STRING;
 CREATE PROPERTY samples_v.sample STRING;
-CREATE PROPERTY words_v.origin STRING;
+CREATE PROPERTY samples_v.origin STRING;
 CREATE INDEX samples_v.nui_samples_v_synsetid ON samples_v (synsetid) NOTUNIQUE;
 CREATE INDEX samples_v.nui_samples_v_synsetid_seq ON samples_v (synsetid_seq) NOTUNIQUE;
 CREATE INDEX samples_v.nui_samples_v_sample_seq ON samples_v (sample_seq) NOTUNIQUE
