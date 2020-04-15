@@ -32,6 +32,7 @@ CREATE CLASS samples_v EXTENDS V;
 CREATE PROPERTY samples_v.synsetid_seq LONG;
 CREATE PROPERTY samples_v.sample_seq LONG;
 CREATE PROPERTY samples_v.synsetid STRING;
+CREATE PROPERTY samples_v.sample_num STRING;
 CREATE PROPERTY samples_v.sample STRING;
 CREATE INDEX samples_v.nui_samples_v_synsetid ON samples_v (synsetid) NOTUNIQUE;
 CREATE INDEX samples_v.nui_samples_v_synsetid_seq ON samples_v (synsetid_seq) NOTUNIQUE;
