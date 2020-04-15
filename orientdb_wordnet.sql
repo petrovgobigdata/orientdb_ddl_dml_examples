@@ -14,6 +14,7 @@ CREATE CLASS words_v EXTENDS V;
 CREATE PROPERTY words_v.wordid_seq LONG;
 CREATE PROPERTY words_v.wordid STRING;
 CREATE PROPERTY words_v.casedwordid STRING;
+CREATE PROPERTY words_v.morphid STRING;
 CREATE PROPERTY words_v.lemma STRING;
 CREATE PROPERTY words_v.wordtype STRING;
 CREATE PROPERTY words_v.origin STRING;
