@@ -74,7 +74,7 @@ CREATE PROPERTY has_wordslink_e.wordtype STRING;
 CREATE PROPERTY has_wordslink_e.posname STRING;
 CREATE PROPERTY has_wordslink_e.in LINK;
 CREATE PROPERTY has_wordslink_e.out LINK;
-CREATE INDEX has_wordslink_e.ui_has_wordslink_e ON has_wordslink_e (out, in, origin, wordtype) UNIQUE
+CREATE INDEX has_wordslink_e.ui_has_wordslink_e ON has_wordslink_e (out, in, origin, wordtype, posname) UNIQUE
 
 --INSERT INTO words_v FROM SELECT FROM words_doc
 
