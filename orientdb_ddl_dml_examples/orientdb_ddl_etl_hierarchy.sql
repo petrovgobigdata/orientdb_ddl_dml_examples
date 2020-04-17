@@ -1,8 +1,8 @@
 CREATE CLASS ypedu_person_v EXTENDS V;
-CREATE PROPERTY ypedu_person_v.person_id int;
+CREATE PROPERTY ypedu_person_v.person_id Integer;
 CREATE PROPERTY ypedu_person_v.person_fname STRING;
 CREATE PROPERTY ypedu_person_v.person_sname STRING;
-CREATE PROPERTY ypedu_person_v.person_age int;
+CREATE PROPERTY ypedu_person_v.person_age Integer;
 CREATE PROPERTY ypedu_person_v.person_sex STRING;
 CREATE INDEX ypedu_person_v.ui_ypedu_person_v_person_id ON ypedu_person_v (person_id) UNIQUE
 
