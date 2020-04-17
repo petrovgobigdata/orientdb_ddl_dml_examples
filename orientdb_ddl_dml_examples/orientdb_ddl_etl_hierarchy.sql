@@ -12,3 +12,6 @@ CREATE PROPERTY has_family_link_e.out LINK
 
 $ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/ypedu_01.hierarchy.json
 $ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/ypedu_02.hierarchy.json
+
+DELETE EDGE has_family_link_e
+DELETE VERTEX ypedu_person_v
