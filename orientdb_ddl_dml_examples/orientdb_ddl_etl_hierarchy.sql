@@ -7,8 +7,8 @@ CREATE PROPERTY ypedu_person_v.person_sex STRING;
 CREATE INDEX ypedu_person_v.ui_ypedu_person_v_person_id ON ypedu_person_v (person_id) UNIQUE
 
 CREATE CLASS ypedu_has_family_link_e EXTENDS E;
-CREATE PROPERTY has_family_link_e.in LINK;
-CREATE PROPERTY has_family_link_e.out LINK
+CREATE PROPERTY ypedu_has_family_link_e.in LINK;
+CREATE PROPERTY ypedu_has_family_link_e.out LINK
 
 $ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/ypedu_01.hierarchy.json
 $ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/ypedu_02.hierarchy.json
