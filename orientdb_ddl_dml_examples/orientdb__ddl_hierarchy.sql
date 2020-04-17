@@ -1,5 +1,5 @@
 CREATE CLASS ypedu_person_v EXTENDS V;
-CREATE PROPERTY ypedu_person_v.person_id LONG;
+CREATE PROPERTY ypedu_person_v.person_id STRING;
 CREATE PROPERTY ypedu_person_v.person_fname STRING;
 CREATE PROPERTY ypedu_person_v.person_sname STRING;
 CREATE PROPERTY ypedu_person_v.person_age STRING;
