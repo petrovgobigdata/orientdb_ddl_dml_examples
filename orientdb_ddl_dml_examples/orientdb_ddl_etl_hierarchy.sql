@@ -1,17 +1,17 @@
 CREATE CLASS ypedu_person_v EXTENDS V;
-CREATE PROPERTY ypedu_person_v.person_id STRING;
+CREATE PROPERTY ypedu_person_v.person_id int;
 CREATE PROPERTY ypedu_person_v.person_fname STRING;
 CREATE PROPERTY ypedu_person_v.person_sname STRING;
-CREATE PROPERTY ypedu_person_v.person_age STRING;
+CREATE PROPERTY ypedu_person_v.person_age int;
 CREATE PROPERTY ypedu_person_v.person_sex STRING;
 CREATE INDEX ypedu_person_v.ui_ypedu_person_v_person_id ON ypedu_person_v (person_id) UNIQUE
 
-CREATE CLASS has_family_link_e EXTENDS E;
+CREATE CLASS ypedu_has_family_link_e EXTENDS E;
 CREATE PROPERTY has_family_link_e.in LINK;
 CREATE PROPERTY has_family_link_e.out LINK
 
 $ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/ypedu_01.hierarchy.json
 $ORIENTDB_HOME/bin/oetl.sh /opt/oetl/sqlunet/scripts/ypedu_02.hierarchy.json
 
-DELETE EDGE has_family_link_e
+DELETE EDGE ypedu_has_family_link_e
 DELETE VERTEX ypedu_person_v
