@@ -13,9 +13,21 @@ Vertex to Vertex (all directions) Using both() or both('EdgeClassName')
 
 --Отобразим всю семью Jack Smith (person_id = 3), включая его самого
 --От вершины с person_id = 3 проходим по всем ребрам как OUT так и IN
-TRAVERSE both(has_family_link_e) from (select from ypedu_person_v where person_id = 3)
---Отобразим всех потомков Jack Smith (person_id = 3), не включая его самого
-TRAVERSE in(has_family_link_e) from (select from ypedu_person_v where person_id = 3)
+select from (
+TRAVERSE both(ypedu_has_family_link_e) from (select from ypedu_person_v where person_id = 3)
+)
+order by person_age desc
+--Отобразим всех потомков Jack Smith (person_id = 3), не включая его уровень
+select from (
+TRAVERSE in(ypedu_has_family_link_e) from (select from ypedu_person_v where person_id = 3)
+)
+where person_id != 3
+order by person_age desc
 --Отобразим всех предков Jack Smith (person_id = 3), не включая его самого
-TRAVERSE out(has_family_link_e) from (select from ypedu_person_v where person_id = 3)
+select from (
+TRAVERSE out(ypedu_has_family_link_e) from (select from ypedu_person_v where person_id = 3)
+)
+where person_id != 3
+order by person_age desc
+
 
